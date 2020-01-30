@@ -5,11 +5,13 @@ require_relative 'lib/game.rb'
 require_relative 'lib/player.rb'
 require_relative 'lib/board.rb'
 require_relative 'lib/board_case.rb'
+require_relative 'lib/application.rb'
 
 
-my_game = Game.new
-
-my_game.turn
-my_game.fin_de_partie
+new_game = Game.new
+while new_game.status == "on going"
+  new_game.turn
+end
+new_game.new_round
 
 # binding.pry

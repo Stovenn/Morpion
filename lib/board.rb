@@ -1,10 +1,12 @@
 require 'pry'
 require_relative 'board_case.rb'
+require_relative 'show.rb'
 require_relative 'player'
 
 class Board
- attr_accessor :board_cases_a, :count_turn
-  WIN = []
+
+  attr_accessor :board_cases_a, :count_turn
+  
   def initialize
     #TO DO :
     @board_cases_a = []
@@ -20,7 +22,7 @@ class Board
   end
 
   def play_turn(player)
-
+    puts "Au tour de #{player.name} !"
     puts "Quel est ton prochain mouvement ?"
     choice = gets.chomp
     @board_cases_a.each {|c| c.value = player.type if c.case_id == choice && c.value == " "}
@@ -30,19 +32,9 @@ class Board
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
   end
 
-  def victory?(player)
-    
-    if @count_turn == 9  
-      puts "Match nul"
-      return true
-    elsif 
-      puts "#{player.name} a gagne"
-      return false
-    else
-      return false
-    end
+  
     #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
-  end
+
 end
 
 
